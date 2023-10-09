@@ -8,6 +8,7 @@ function IndexCliente() {
 
   return (
     <Sidebar />
+    
   );
 }
 
