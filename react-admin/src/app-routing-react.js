@@ -4,6 +4,8 @@ import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
 import IndexProducto from "./pages/products/index-producto/index-producto";
 import IndexCliente from "./pages/clients/index-cliente/index-cliente";
+import UpdateProducto from "./pages/products/update-producto/update-producto";
+import CreateProducto from "./pages/products/create-producto/create-producto";
 
 function AppRoutingReact() {
   return (
@@ -18,6 +20,8 @@ function AppRoutingReact() {
         {/* Rutas anidadas */}
         <Route path="/panel/clientes" element={<IndexCliente />} />
         <Route path="/panel/productos" element={<IndexProducto />} />
+        <Route path="/panel/productos/registro" element={<CreateProducto />} />
+        <Route path="/panel/productos/:id" element={<UpdateProducto />} />
 
       </Routes>
     </Router>
