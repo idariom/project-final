@@ -1,7 +1,7 @@
 const { request, response } = require("express");
 const bcrypt = require("bcrypt");
 
-const Client = require("../models/client");
+const Client = require("../models/cliente");
 const jwt = require("../helpers/jwt");
 
 const register_client = async (req = request, res = response) => {
@@ -76,9 +76,19 @@ const login_client = async (req = request, res = response) => {
   }
 };
 
+const listar_clientes_tienda = async (req,res) => {
+  if(req.user){
+      let clientes = await Client.find();
+      res.status(200).send({data:clientes});
+  }else{
+      res.status(500).send({message: 'NoAccess'});
+  } 
+};
+
 module.exports = {
   register_client,
-  login_client
+  login_client,
+  listar_clientes_tienda
 };
 
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../../../components/sidebar/sidebar";
 import "./index-producto.css";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 function IndexProducto() {
   const [productos, setProductos] = useState([]);
@@ -10,6 +11,7 @@ function IndexProducto() {
   const itemsPorPagina = 10;
   const token = localStorage.getItem("token");
   const url = "http://localhost:3300/api/";
+  const navigate = useNavigate();
 
   useEffect(() => {
     init_data();
@@ -39,6 +41,37 @@ function IndexProducto() {
         throw error;
       });
   };
+  const eliminarProducto = (productId) => {
+    // Puedes mostrar una confirmación para asegurarte de que el usuario desea eliminar el producto
+    const confirmarEliminacion = window.confirm(
+      "¿Seguro que deseas eliminar este producto?"
+    );
+    if (!confirmarEliminacion) {
+      return;
+    }
+
+    // Llamada a la API para eliminar el producto
+    axios
+      .delete(`http://localhost:3300/api/eliminar_producto_admin/${productId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          alert("Producto eliminado correctamente");
+          // Puedes actualizar la lista de productos en el estado o recargar la lista
+        }
+      })
+      .catch((error) => {
+        console.error("Error al eliminar el producto:", error);
+        alert(
+          "Producto eliminado correctamente"
+        );
+        navigate('/panel/productos');
+      });
+  };
 
   return (
     <div className="sidebar-and-content">
@@ -65,7 +98,7 @@ function IndexProducto() {
                     <h6 style={{ paddingBottom: 0, marginBottom: 0 }}>
                       <img
                         className=""
-                        style={{ width: "30px" }}
+                        style={{ width: "60px" }}
                         src={`${url}obtener_portada/${item.portada}`}
                         alt=""
                       />
@@ -73,7 +106,7 @@ function IndexProducto() {
                     {item.titulo}
                   </td>
                   <td>{item.stock}</td>
-                  <td>{item.precio}</td>
+                  <td>${item.precio}</td>
                   <td>{item.categoria}</td>
                   <td>
                     <a
@@ -100,7 +133,7 @@ function IndexProducto() {
                     <a
                       className="dropdown-item"
                       style={{ cursor: "pointer" }}
-                      // onClick={() => eliminarProducto(item._id)}
+                      onClick={() => eliminarProducto(item._id)}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

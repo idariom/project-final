@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const ProductoSchema = Schema({
 
     titulo: { type: String, required: true },
-    slug: { type: String, required: true },
+    slug: { type: String, required: false },
     galeria: [{ type: Object, required: false, }],
     portada: { type: String, required: true },
     precio: { type: Number, required: true },

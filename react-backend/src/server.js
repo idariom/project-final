@@ -34,7 +34,7 @@ class Server{
     routers(){
         this.app.use(this.routersAdmin, require('./routers/admin'));
         this.app.use(this.routersProducto, require('./routers/producto'));
-        // this.app.use(this.routersCliente, require('./routers/cliente'));
+        this.app.use(this.routersCliente, require('./routers/cliente'));
         // this.app.use(this.routersConfig, require('./routers/config'));
     }
     listen(){
