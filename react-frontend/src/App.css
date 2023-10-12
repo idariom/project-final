@@ -1,0 +1,46 @@
+/* Establece un diseño para todo el cuerpo del documento */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Asegura que el contenido se expanda para llenar el espacio entre el header y el footer */
+#root {
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Estilos para el header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Estilos para el footer */
+footer {
+  background-color: #333;
+  padding: 20px; /* Aumentamos el espacio interior para un aspecto más moderno */
+  color: #fff;
+  text-align: center; /* Centramos el texto en el footer */
+  font-size: 14px; /* Tamaño de fuente */
+}
+
+/* Puedes agregar estilos adicionales según tus preferencias de diseño */
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px; /* Espaciado entre enlaces */
+  transition: color 0.3s; /* Agregamos una transición suave de color */
+}
+
+footer a:hover {
+  color: #f7b731; /* Cambia el color de los enlaces al pasar el cursor sobre ellos */
+}
+
+/* Estilos para el contenido principal */
+main {
+  flex-grow: 1;
+}
