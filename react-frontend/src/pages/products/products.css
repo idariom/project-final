@@ -1,0 +1,26 @@
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.product-item {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.comprar-button {
+  /* Estilos para el botón "Comprar" */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px; /* Margen superior para separar el botón de la imagen */
+  cursor: pointer;
+}
+
+.comprar-button:hover {
+  background-color: #0056b3;
+}

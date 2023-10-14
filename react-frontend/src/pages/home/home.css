@@ -1,0 +1,19 @@
+.carousel {
+  width: 65%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.cs-carousel-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cs-image-scale {
+  flex: 0 0 25%; /* Adjust this value to control the width of each icon */
+  padding: 0 10px; /* Add some horizontal spacing between icons */
+  box-sizing: border-box;
+  text-align: center;
+}

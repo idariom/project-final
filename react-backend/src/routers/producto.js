@@ -19,5 +19,12 @@ router.put('/agregar_imagen_galeria_admin/:id',[auth.auth, multipartyMiddleware]
 
 router.delete('/eliminar_producto_admin/:id', [auth.auth], productoController.eliminar_producto_admin);
 
+//publicos que veran el cliente
+router.get('/listar_productos_public/:filtro?',productoController.listar_productos_public);
+router.get('/obtener_productos_slug_public/:slug', productoController.obtener_productos_slug_public);
+router.get('/listar_productos_recomendados_public/:categoria', productoController.listar_productos_recomendados_public);
+router.get('/listar_productos_nuevos_public', productoController.listar_productos_nuevos_public);
+router.get('/listar_productos_mas_vendidos_public', productoController.listar_productos_mas_vendidos_public);
+
 module.exports = router;
 
