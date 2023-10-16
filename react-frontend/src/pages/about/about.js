@@ -95,7 +95,7 @@ function About() {
           <div className="person">
             <div className="container1">
               <div className="container1-inner">
-                <img className="circle"></img>
+                <img className="circle" src="https://media.licdn.com/dms/image/D4E03AQHndHqtWEZe7Q/profile-displayphoto-shrink_400_400/0/1692727029828?e=1703116800&v=beta&t=wMP_zIi58nWFwP7YkGw8D1zAaEzlL09avVf0SvT8UaU"></img>
                 <img img img1></img>
               </div>
             </div>
